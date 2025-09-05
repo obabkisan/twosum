@@ -5,6 +5,6 @@ def f(nums, target):
                 return(i, j)
     return None
 target = 6
-nums = [3, 3, 3, 3]
+nums = [3, 3]
 print(f(nums, target))
 
