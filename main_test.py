@@ -1,5 +1,6 @@
 import unittest
 
+
 def f(nums, target):
     if len(nums) < 2:
         return None
@@ -9,6 +10,7 @@ def f(nums, target):
             if nums[i] + nums[j] == target:
                 return (i, j)
     return None
+
 
 class TestTwoSum(unittest.TestCase):
 
@@ -25,20 +27,24 @@ class TestTwoSum(unittest.TestCase):
         self.assertIsNone(f([1, 2, 3], 100))
 
     def test_minimal_pair(self):
+        # несколько пар дают target = 4
         self.assertEqual(f([1, 3, 2, 2], 4), (0, 1))
 
     def test_duplicates(self):
         self.assertEqual(f([1, 1, 1, 1], 2), (0, 1))
 
     def test_large_numbers(self):
-        big = 10**9
+        # проверка работы с большими значениями
+        big = 10 ** 9
         self.assertEqual(f([big, -big], 0), (0, 1))
 
     def test_minimum_length(self):
+        # меньше двух элементов
         self.assertIsNone(f([5], 5))
 
     def test_negative_target(self):
         self.assertEqual(f([-3, -2, -7], -5), (0, 1))
+
 
 if __name__ == "__main__":
     unittest.main(argv=[""], verbosity=2, exit=False)
